@@ -1,6 +1,6 @@
-# Manage Subjects - Courses / Assign - Register Students
+# Assign WOW Assignment to Students
 
-## Angular Material Installation
+## Angular Material Installatio
 
 ```bash
 $ ng add @angular/material@14

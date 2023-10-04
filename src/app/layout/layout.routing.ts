@@ -10,8 +10,8 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('../modules/project-name/project-name.module').then(
-            (m) => m.ProjectNameModule
+          import('../modules/assign-wow-assignment-students/assign-wow-assignment-students.module').then(
+            (m) => m.AssignWowAssignmentStudentsModule
           ),
       },
     ],

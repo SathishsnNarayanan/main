@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiService {
-  private httpClient: HttpClient;
 
-  constructor(private http: HttpClient, private handler: HttpBackend) {
-    this.httpClient = new HttpClient(handler);
+  getAllSyllabusBasedOnSyllabusId(course_subject_id: number, is_global_course_subject: boolean) {
+    throw new Error('Method not implemented.');
   }
+
 
   // post_form(body: any): Observable<any> {
   //   return this.http

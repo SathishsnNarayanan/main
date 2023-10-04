@@ -3,8 +3,8 @@ pipeline {
     agent any
     environment {
         // Define the email recipient address as an environment variable
-        MAIL_ID = 'mail_id@getster.tech'
-        app_id = 'app_id'
+        MAIL_ID = 'sathish.n@getster.tech'
+        app_id = 'p37'
 
     }
     post {

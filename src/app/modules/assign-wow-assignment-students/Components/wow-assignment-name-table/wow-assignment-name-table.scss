@@ -1,0 +1,143 @@
+
+@import "variables";
+
+.example-container .mat-table {
+  overflow: scroll;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.print {
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+  right: 5px;
+}
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+.mat-column-dateAndTime {
+  border-right: 1px solid $secondary-color;
+
+}
+
+.mat-column-transactionId {
+  border-right: 1px solid $secondary-color;
+}
+.mat-column-transactionDescription {
+  border-right: 1px solid $secondary-color;
+
+}
+.mat-column-debitCredit {
+  border-right: 1px solid $secondary-color;
+}
+
+.mat-column-transactionExecuted {
+
+  // border-right: 1px solid $secondary-color;
+
+}
+
+.app-hint {
+  background-color: #ffff00;
+  color: #000000;
+  padding: 3px;
+  font-weight: 550;
+  font-size: 12px;
+}
+
+.mat-paginator {
+  background: unset;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 0px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 37px;
+}
+
+mat-form-field {
+  @apply w-full;
+}
+
+.table thead th {
+  vertical-align: middle;
+}
+
+.app-hint {
+  background-color: #ffff00;
+  color: #000000;
+  padding: 3px;
+  font-weight: 550;
+  font-size: 12px;
+}
+
+.mat-table {
+  max-height: 230px;
+  > .mat-header-row,
+  > .mat-row {
+    display: table-row;
+    padding: 0;
+    border: none;
+
+    > .mat-header-cell,
+    > .mat-cell {
+      display: table-cell;
+      vertical-align: middle;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #141313;
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 15px;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding-right: 1px;
+}

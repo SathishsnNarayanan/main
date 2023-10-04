@@ -1,0 +1,460 @@
+<div class="p-2">
+  <div class=" md:flex md:justify-center md:flex-wrap gt-md:flex gt-md:justify-center gt-md:flex-wrap">
+    <form [formGroup]="myGroup">
+      <div class="flex gt-xs:gap-1 flex-wrap  ">
+        <div class="flex mt-[10px] ">
+          <div class="text-[14px] font-bold text-black">Assign</div>
+          <div class="text-[14px] font-bold text-red ml-1">WOW Assignment</div>
+        </div>
+        <div class="text-[14px] font-bold text-black mt-[10px] ml-1 ">to</div>
+
+        <div class="flex xs:flex lt-xs:flex-wrap  gt-xs:gap-1 xs:gap-1">
+          <div class="flex">
+            <div><app-select></app-select></div>
+          </div>
+        </div>
+
+        <div class="flex xs:flex lt-xs:flex-wrap gt-xs:gap-1 xs:gap-1 ">
+          <div class="text-[14px] font-bold text-black mt-[10px]">registered in </div>
+          <div class="flex">
+            <div><app-selectors></app-selectors></div>
+          </div>
+        </div>
+        <span class="flex-1"></span>
+
+
+        <div class="flex justify-end xs:justify-end cursor-pointer">
+          <div class="text-[14px] font-bold text-blue-500 mt-1 gt-xs:mt-3"><u>Audit Trail</u></div>
+        </div>
+      </div>
+
+
+      <div class="justify-center mt-1">
+        <!-- <hr style="width:full;height: 2px;border-width: 0;color: rgb(19, 1, 1);background-color: rgb(15, 1, 1);" /> -->
+        <mat-divider></mat-divider>
+      </div>
+      <div class="p-2 -mt-3">
+        <div class="text-[14px] font-bold text-red mt-3">Assign New / Edit</div>
+
+        <div class=" flex mt-2  xs:flex lt-xs:flex-wrap ">
+          <div class="text-[15px] font-bold text-black ">Step 1:</div>
+          <div class="text-[15px] font-bold text-blue-500 ml-1">
+            Select From the following WOW Assignments / Assessments
+          </div>
+        </div>
+
+
+
+        <div class="md:flex gt-md:flex lt-md:flex-wrap gt-xs:gap-1 mt-5">
+          <div><app-assessments-relevant-syllabus-selection></app-assessments-relevant-syllabus-selection></div>
+          <div class="text-[15px] font-bold text-blue-500 mt-[12px] cursor-pointer">EDIT Global Course / Subject of Your Interest
+          </div>
+        </div>
+        <div>
+          <!-- <app-syllabus-tree></app-syllabus-tree> -->
+          <app-tree-view-stp1></app-tree-view-stp1>
+        </div>
+        <div class="md:flex gt-md:flex lt-md:flex-wrap gt-xs:gap-1">
+          <div class="text-[14px] font-bold text-black">List of WOW Assignments / Assessments relevant to the
+            syllabus:</div>
+          <div class="text-[14px] font-normal text-red">History - Class - VI - Term 1 > Unit 1 - Geometry, Unit
+            2-Trigonometry > Lesson 1 - Circles
+          </div>
+        </div>
+
+        <div class="flex gt-xs:gap-1 xs xs:gap-1 mt-2">
+          <button class="primary-button" mat-raised-button>Select</button>
+          <button class="primary-button" mat-raised-button>Preview</button>
+        </div>
+        <div class="md:flex gt-md:flex lt-md:flex-wrap gt-xs:gap-1 mt-[12px] ">
+          <div class="text-[14px] font-bold text-black mt-[10px]">Sort By:</div>
+          <div>
+            <mat-form-field appearance="outline"
+              class="xs:w-full gt-xs:w-[520px] smart-input component--mat-form-field__custom-input">
+              <!-- <mat-label class="text-[14px]  text-black"> Your Own Assignments on Top</mat-label> -->
+              <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div> <app-wow-assignment-name-Table></app-wow-assignment-name-Table></div>
+
+        <div class="justify-center mt-5">
+          <!-- <hr
+            style="width:full;height: 7px;border-width: 0;color: rgb(114, 110, 110);background-color: rgb(144, 139, 139);" /> -->
+            <mat-divider ></mat-divider>
+        </div>
+
+                <!-------------------------Step 2---------------------------->
+
+        <div class="flex">
+          <div class="text-[15px] font-bold text-black">Step 2:</div>
+          <div class="text-[15px] font-bold text-blue-600 ml-1">Schedule and Assign to the Students</div>
+        </div>
+
+
+        <!--datepicker line-->
+        <div class="md:flex gt-md:flex lt-md:flex-wrap   gt-xs:gap-2 mt-3">
+          <div>
+            <div class="xs:full gt-xs:w-[300px]">
+              <div class="date component-date-picker__reduced-space ml-2">
+                <mat-form-field appearance="outline" class="w-full component--mat-form-field__custom-input"
+                  (click)="ScheduleDate.open()">
+                  <mat-label class="font-bold text-neutral-400">Schedule From</mat-label>
+                  <input matInput [matDatepicker]="ScheduleDate" formControlName="date1">
+                  <mat-datepicker-toggle matSuffix [for]="ScheduleDate"></mat-datepicker-toggle>
+                  <mat-datepicker #ScheduleDate></mat-datepicker>
+                  <mat-error
+                    *ngIf="firstFormGroup.get('date2')?.hasError('required') || firstFormGroup.get('date2')?.touched ">
+                    Date is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="xs:full lt-xs:mt-3 gt-xs:w-[300px]">
+              <div class="date component-date-picker__reduced-space ml-2">
+                <mat-form-field appearance="outline" class="w-full component--mat-form-field__custom-input"
+                  (click)="DueDate.open()">
+                  <mat-label class="font-bold text-neutral-400">Due Date</mat-label>
+                  <input matInput [matDatepicker]="DueDate" formControlName="date2">
+                  <mat-datepicker-toggle matSuffix [for]="DueDate"></mat-datepicker-toggle>
+                  <mat-datepicker #DueDate></mat-datepicker>
+                  <mat-error *ngIf="
+                  firstFormGroup.get('date2')?.hasError('required') || firstFormGroup.get('date2')?.touched">
+                    Date is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- check box line-->
+        <section class="example-section mt-5">
+          <mat-checkbox class="example-marign">
+            <span class="text-[14px] font-bold text-blue-600">
+              Permit Late Submission / Completion
+            </span>
+          </mat-checkbox>
+        </section>
+        <!--check box-->
+
+        <div class="flex mt-[20px]">
+          <div>
+            <mat-checkbox></mat-checkbox>
+          </div>
+          <div class="ml-1 text-justify">
+            <span class="text-[16px] font-bold text-blue-600"> Customize Assignment to </span>
+            <span class="text-[16px] font-bold text-red"> Student / Class 1 / Section A</span>
+            <span class="text-[16px] font-bold text-blue-600"> registered in</span>
+            <span class="text-[16px] font-bold text-red"> History - Class - VI - Term 1</span>
+          </div>
+        </div>
+        <div class="text-[12px] font-medium text-justify text-neutral-400">You can customize the assignment of
+          the above WOW Assignment to specific set of users by un-selecting users from the table below.
+          By default, all new users added to the above category will have access to the WOW Assignment.
+        </div>
+        <!--table column-->
+
+        <div><app-student-list-table></app-student-list-table></div>
+
+        <div class="flex gt-xs:gap-1  xs:flex-wrap">
+          <mat-form-field appearance="outline"
+            class="xs:w-full smart-input component--mat-form-field__custom-input mt-3">
+            <mat-label class=" font-bold  text-neutral-400"> Assignment Type:</mat-label>
+            <mat-select>
+              <mat-option value="0">Group Assignment</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="text-[14px] font-bold text-neutral-400 mt-[22px] ">Individual Assignment</div>
+        </div><br>
+        <!--check box-->
+        <div class="gt-md:flex md:flex lt-md:flex-wrap  mt-5">
+          <div>
+            <mat-checkbox class="expmle-margin">
+            </mat-checkbox>
+            <span class="text-[14px] font-bold  text-blue-600 ml-1">Add / Edit Group Members </span>
+          </div>
+          <div>
+            <span class="text-[14px] font-bold text-black">(Applicable only for Group Assignments)</span>
+          </div>
+        </div>
+
+        <div class="flex gt-xs:gap-1 lt-xs:gap-1 xs:flex-wrap mt-[15px]">
+          <div class="flex xs:w-full">
+            <button class="primary-button" mat-raised-button>Add Group</button>
+          </div>
+          <div class="">
+            <button class="primary-button" mat-raised-button>Delete Group</button>
+          </div>
+          <div>
+            <button class="primary-button" mat-raised-button>Add/Edit Group Members</button>
+          </div>
+        </div>
+
+        <!--table column-->
+        <div><app-gorup-members-table></app-gorup-members-table></div>
+
+        <!------------    step 3    --------------->
+
+        <div class="flex gt-xs:gap-1 xs:gap-1">
+          <div class="text-[15px] font-bold  text-black">Step 3:</div>
+          <div class="text-[15px] font-bold  text-blue-600">Edit Assignment Details</div>
+        </div>
+
+        <div class="">
+          <mat-form-field appearance="outline"
+            class=" xs:w-full gt-xs:w-[520px] smart-inpu component--mat-form-field__custom-input mt-3">
+            <mat-label class=" text-[13px] font-bold text-blue-600 flex">Edit WOW Assignment Name <div class="text-red">
+                *</div>:</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-1 gt-xs:gap-2">
+          <div class="example-section">
+            <mat-checkbox class="example-margin">
+              <span class="text-[15px]  font-bold text-blue-600">Enable WOW Assessment</span>
+            </mat-checkbox>
+          </div>
+
+          <div class="">
+              <mat-form-field appearance="outline"
+               class="xs:w-full gt-xs:w-[400px] smart-inpu component--mat-form-field__custom-input mt-3">
+               <mat-label class=" font-bold text-neutral-400">Assessment Type: </mat-label>
+                <mat-select>
+                  <mat-option value="0">Summative Assessment</mat-option>
+                  <mat-option value="1">Formative Assessment</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+
+          <!-- <div>
+            <div class="text-[14px] font-bold  text-neutral-400">Formative Assessment</div>
+          </div> -->
+        </div>
+
+        <section class="mt-1">
+          <mat-checkbox class="example-margin">
+            <span class="text-[14px] font-bold  text-neutral-400">Send Notifications After assessment</span>
+          </mat-checkbox>
+        </section>
+
+        <div class=" mt-">
+          <mat-checkbox class="example-margin">
+          </mat-checkbox>
+          <span class="text-[14px] font-bold  text-black  ml-1">Edit and Display WOW Assignment Description
+            (Optional):</span>
+        </div>
+
+
+
+        <div class="mt-2">
+          <div class="text-editor">
+            <ckeditor name="myckeditor" formControlName="learningOutcome" required [config]="ckeConfig">
+            </ckeditor>
+          </div>
+        </div>
+
+
+        <div class="mt-[10px] flex gt-xs:gap-1 xs:gap-4 xs:flex-wrap ">
+          <div class="text-[14px] font-bold  text-blue-600 ">Select Relevant Syllabus in1</div>
+          <div class="text-[14px] font-bold  text-red"> History - Class - VI - Term 1 </div>
+        </div>
+
+        <div><app-syllabus-tree></app-syllabus-tree></div>
+
+        <!----------------   step 4    ---------------->
+        <div class="flex gt-xs:gap-1  xs:flex lt-xs:flex-wrap">
+          <div class="text-[15px] font-bold text-black ">Step 4:</div>
+          <div class="text-[15px] font-bold text-blue-600  "> Configure Responses/Presentation/Notifications</div>
+        </div>
+
+        <!------ Radio button --------->
+        <div class="mt-4 ml-2">
+          <mat-radio-button class="text-[12px] font-bold text-black">View Right / Correct answers
+            immediately after submission</mat-radio-button><br>
+
+          <div class="flex">
+            <mat-radio-button class=""> </mat-radio-button>
+            <div class="text-[12px] font-bold text-black mt-1 ">
+              Permit User to UnSubmit and Review
+              Answers and Resubmit until due date
+            </div>
+          </div>
+        </div>
+        <div class="mt-6">
+          <mat-divider></mat-divider>
+        </div>
+        <div class="p-[7px] mt-1 ">
+          <!-------------------- Expansion panel 1------------------------------->
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div class="text-[14px] font-bold text-black">Presentation and Timer</div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="p-3">
+                <div class="text-[14px] font-bold text-neutral-400">Manage how the form and responses are presented
+                </div>
+                <div class="flex justify-between">
+                  <div class="text-[14px] font-bold text-black">Shuffle question order</div>
+                  <div><mat-slide-toggle></mat-slide-toggle></div>
+                </div>
+                <div class="flex justify-between">
+                  <div class="text-[14px] font-bold text-black">Set Timer Once User Starts Responding </div>
+                  <div><mat-slide-toggle></mat-slide-toggle></div>
+                </div>
+
+                <div class="flex items-center ml-[100px]">
+                  <div class="text-[14px] font-bold text-black">Time Limit (HH:MM):</div>
+
+                  <div class="component date-picker__reduced-space">
+                    <!-- <mat-label>Time </mat-label> -->
+                    <ngx-mat-timepicker [(ngModel)]="time_picker_value" [ngModelOptions]="{ standalone: true }"
+                      [showSpinners]="showSpinners" [stepHour]="stepHour" [stepMinute]="stepMinute"
+                      [stepSecond]="stepSecond" [showSeconds]="showSeconds" [enableMeridian]="true">
+                    </ngx-mat-timepicker>
+                  </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="mt-2"><mat-divider></mat-divider></div>
+        <div class="p-[7px] mt-1 ">
+          <!-------------------- Expansion panel 1------------------------------->
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div class="text-[14px] font-bold text-black">Notifications</div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="p-3">
+                <div class="flex justify-between">
+                  <div class="text-[14px] font-bold text-black">Notify me only once, if there is no submission /
+                    completion of this </div>
+                  <div><mat-slide-toggle></mat-slide-toggle></div>
+                </div>
+
+                <div class="flex gt-xs:gap-1 xs:flex-wrap items-center">
+                  <div class="text-[14px] font-bold text-black mt-2">Assignment beyond due date by</div>
+                  <div class="flex xs:flex-wrap gt-xs:gap-1">
+                    <mat-form-field appearance="outline"
+                      class="xs:w-full smart-output component--mat-form-field__custom-input">
+                      <mat-label class="text-[14px] font-bold text-black"> Day</mat-label>
+                      <mat-select>
+                      </mat-select>
+                    </mat-form-field>
+                    <div class="text-[12px] font-bold text-neutral-400 mt-2">1 minute, 1 hour, 1 day, 1 week</div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between   items-center">
+                  <div class="flex gt-xs:gap-1 xs:flex-wrap mt-5">
+                    <div class="text-[14px] font-bold text-black mt-2">Notify Student on delay in submission every
+                    </div>
+                    <div class="flex xs:flex-wrap gt-xs:gap-1">
+                      <mat-form-field appearance="outline"
+                        class=" xs:w-full smart-output component--mat-form-field__custom-input">
+                        <mat-label class="text-[14px] font-bold text-black"> Day</mat-label>
+                        <mat-select>
+                        </mat-select>
+                      </mat-form-field>
+                      <div>
+                        <div class="mt-2">
+                          <div class="text-[13px] font-bold black mt-2"> beyond due date,</div>
+                          <div class="text-[13px] font-bold text-neutral-400 -mt-2">Hour, Week, Month</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex xs:-mt-[70px] xs:ml-2"><mat-slide-toggle></mat-slide-toggle></div>
+
+                </div>
+                <!-------------------Datepicker------------->
+                <div class="flex gt-xs:gap-2 xs:mt-1 items-center">
+                  <div class="text-[13px] font-bold text-black">Until:</div>
+                  <div class="date component-date-picker__reduced-space ml-2">
+                    <mat-form-field appearance="outline" class=" component--mat-form-field__custom-input"
+                      (click)="Until1.open()">
+                      <!-- <mat-label class="font-bold text-neutral-400">Date</mat-label> -->
+                      <input matInput [matDatepicker]="Until1" formControlName="date3">
+                      <mat-datepicker-toggle matSuffix [for]="Until1"></mat-datepicker-toggle>
+                      <mat-datepicker #Until1></mat-datepicker>
+                      <mat-error *ngIf="
+                      firstFormGroup.get('date2')?.hasError('required') ||
+                      firstFormGroup.get('date2')?.touched
+                    ">
+                        Date is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="flex justify-between  items-center">
+                  <div class="flex gt-xs:gap-1 xs:flex-wrap mt-5">
+                    <div class="text-[14px] font-bold text-black mt-2">Notify parent on delay in submission every
+                    </div>
+                    <div class="flex xs:flex-wrap gt-xs:gap-1">
+                      <mat-form-field appearance="outline"
+                        class="xs:w-full smart-output component--mat-form-field__custom-input">
+                        <mat-label class="text-[14px] font-bold text-black"> Day</mat-label>
+                        <mat-select>
+                        </mat-select>
+                      </mat-form-field>
+                      <div>
+                        <div class="mt-2">
+                          <div class="text-[13px] font-bold black mt-2"> beyond due date,</div>
+                          <div class="text-[13px] font-bold text-neutral-400 -mt-2">Hour, Week, Month</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex xs:-mt-[70px] xs:ml-2"><mat-slide-toggle></mat-slide-toggle></div>
+                </div>
+
+                <!------------------------------datepicker--------------------------------->
+                <div class="flex gt-xs:gap-2 xs:mt-1 items-center">
+                  <div class="text-[13px] font-bold text-black">Until:</div>
+                  <div class="date component-date-picker__reduced-space ml-2">
+                    <mat-form-field appearance="outline" class=" component--mat-form-field__custom-input"
+                      (click)="Until2.open()">
+                      <!-- <mat-label class="font-bold text-neutral-400">Date</mat-label> -->
+                      <input matInput [matDatepicker]="Until2" formControlName="date4">
+                      <mat-datepicker-toggle matSuffix [for]="Until2"></mat-datepicker-toggle>
+                      <mat-datepicker #Until2></mat-datepicker>
+                      <mat-error *ngIf="
+                                  firstFormGroup.get('date2')?.hasError('required') ||
+                                  firstFormGroup.get('date2')?.touched
+                                  ">
+                        Date is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <!---------------close the date picker---------------->
+
+          <div class="flex flex-wrap lt-xs:gap-1 gt-xs:gap-7 mt-6">
+            <button class="primary-button" mat-raised-button (click)="openFirstDialog()">PRE PAY AND ASSIGN</button>
+            <button class="primary-button" mat-raised-button (click)="openSecondDialog()">ASSIGN without Pre
+              Payment</button>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

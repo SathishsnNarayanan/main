@@ -1,0 +1,149 @@
+
+
+<div class="mt-4  mb-3 ml-1">
+  <div class="mat-elevation-z8 example-container   w-full gt-lg:w-fit">
+      <div id="pdfTable" class="component--mat-table__custom-table overflow-auto">
+          <table *ngIf="dataSource" id="excel_table" mat-table [dataSource]="dataSource"
+              class="table table-bordered table-sm">
+              <ng-container matColumnDef="dateAndTime">
+                  <th mat-header-cell *matHeaderCellDef style="
+              word-wrap: break-word;
+              min-width: 152px;
+              max-width: 151px;
+              vertical-align: middle;
+              margin-top:8px;
+              text-align: center;
+              margin-bottom: 8px;
+            ">
+                     Edited Date, Time
+                  </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 2mm;">
+                    <mat-radio-button>
+                      <span>{{element.Edited_DateTime}}</span>
+                    </mat-radio-button>
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="transactionId">
+                  <th mat-header-cell *matHeaderCellDef style="
+              word-wrap: break-word;
+              min-width: 150px;
+              max-width: 70px;
+              padding-right: 8px;
+              padding-left: 10px;
+              text-align: center;
+              vertical-align: middle;
+            " class="whitespace-nowrap">
+                      WOW Assignment Name
+                  </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 2mm;">
+                      <span>{{element.wow_assignment_name}}</span>
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="transactionDescription">
+                  <th mat-header-cell *matHeaderCellDef style="
+              word-wrap: break-word;
+              width: 237px;
+              min-width:233px;
+              text-align: center;
+              vertical-align: middle;
+            " class="whitespace-nowrap">
+                     Avg Global Teaching
+                     <br>
+                     Faculty Rating
+                  </th>
+                  <td mat-cell *matCellDef="let element" style=" padding-left: 2mm;padding-right: 2mm;">
+                    <span>
+                      <form [formGroup]="form">
+                      <div class="cont">
+                        <div class="stars">
+                          <ngx-star-rating formControlName="rating2" [id]="'rating2'" [disabled] ="true"></ngx-star-rating>
+                        </div>
+                        <div> {{element.Faculty_Rating}}</div>
+                      </div>
+                      </form>
+                    </span>
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="debitCredit">
+                  <th mat-header-cell *matHeaderCellDef style="
+              word-wrap: break-word;
+              min-width: 226px;
+              max-width: 185px;
+              padding-right: 8px;
+              padding-left: 8px;
+              text-align: center;
+              vertical-align: middle;
+            " class="whitespace-nowrap">
+                      WOW Assessement
+                      <br>
+                      Type
+                  </th>
+                  <td mat-cell *matCellDef="let element" style="padding-left: 2mm;">
+               <span>{{element.wow_assessement_type}}</span>
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="transactionExecuted">
+                  <th mat-header-cell *matHeaderCellDef style="
+              word-wrap: break-word;
+              min-width: 157px;
+              max-width: 150px;
+              padding-right: 8px;
+              padding-left: 8px;
+              text-align: center;
+              vertical-align: middle;
+            " class="whitespace-nowrap">
+                     Charges Per
+                     <br>
+                      Usage
+                  </th>
+
+                  <td mat-cell *matCellDef="let element" style="padding-left: 2mm;">
+                     <span> {{element.per_charge}} <span class="text-red">{{element.currency}}</span></span>
+                  </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="7">No data available</td>
+              </tr>
+          </table>
+      </div>
+      <!-- <div>
+          <mat-paginator class="component--mat-pagination__size" #paginator #paginatorElement
+              [length]="dataSource.data.length" [pageIndex]="0" [pageSizeOptions]="[5,10, 20]" [pageSize]="10"
+              [allValue]="dataSource.data.length" appAddAllToPaginator>
+          </mat-paginator>
+      </div> -->
+      <!-- <div class="flex bg-white-black">
+          <div class="custom-mat-floating-label">
+              <mat-form-field appearance="outline" class="component--mat-form-field__custom-input pl-2">
+                  <mat-label>Filter</mat-label>
+                  <input matInput (keyup)="applyFilter($event)" #input placeholder="Records shown in page" />
+              </mat-form-field>
+          </div>
+          <div class="w-full flex justify-end">
+              <span class="p-5 export-btn" [matMenuTriggerFor]="menu">Export</span>
+          </div>
+      </div> -->
+  </div>
+</div>
+<!-- <div>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="downloadAsPDF()">
+          <mat-icon>picture_as_pdf</mat-icon>
+          <span>Print / Export PDF</span>
+      </button>
+      <button mat-menu-item (click)="exportReport('Last Ten Transactions.xlsx')">
+          <mat-icon>grid_on</mat-icon>
+          <span>Export SpreadSheet</span>
+      </button>
+      <button mat-menu-item (click)="exportReport('Last Ten Transactions.csv')">
+          <mat-icon>grid_on</mat-icon>
+          <span>Export csv File</span>
+      </button>
+      <button mat-menu-item (click)="exportReport('Last Ten Transactions.json')">
+          <mat-icon>grid_on</mat-icon>
+          <span>Export json</span>
+      </button>
+  </mat-menu>
+</div> -->

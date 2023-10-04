@@ -1,0 +1,32 @@
+<div class="">
+  <div class="relative">
+    <div class="cursor-pointer absolute top-0 flex items-center px-3 h-full w-full" (click)="selectRef.open()">
+      <mat-label *ngIf="selectedOption" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span
+          class="!text-red" style="color: red">{{
+          selectedOption.course_subject_name
+          }}</span>
+        {{ selectedOption.course_subject_type }}
+        <span class="!text-red" style="color: red">
+          {{ selectedOption.educational_institution_country_code }}
+        </span></mat-label>
+    </div>
+
+    <mat-form-field appearance="outline" class="xs:w-full gt-xs:w-[520px] component--mat-form-field__custom-input absolute top-0">
+      <mat-label>Please Select the Relevant Syllabus of your interest from:</mat-label>
+      <mat-select #selectRef appearance="outline" class="" required [(value)]="selectedOption"
+        (selectionChange)="onSelectSelectedItem(selectedOption)" style="visibility: hidden">
+        <ng-container *ngFor="let item of course">
+          <mat-option [value]="item"><span class="!text-red" style="color: red">{{
+              item.course_subject_name
+              }}</span>
+            {{ item.course_subject_type }}
+            -<span class="!text-red mt-1" style="color: red">
+              {{ item.educational_institution_country_code }}
+            </span></mat-option>
+        </ng-container>
+      </mat-select>
+
+      <mat-icon matSuffix class="px-2">arrow_drop_down</mat-icon>
+    </mat-form-field>
+  </div>
+</div>

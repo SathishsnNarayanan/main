@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProjectNameComponent } from './project-name.component';
+import { TreeViewStp1Component } from './tree-view-stp1.component';
 
-describe('ProjectNameComponent', () => {
-  let component: ProjectNameComponent;
-  let fixture: ComponentFixture<ProjectNameComponent>;
+describe('TreeViewStp1Component', () => {
+  let component: TreeViewStp1Component;
+  let fixture: ComponentFixture<TreeViewStp1Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectNameComponent ]
+      declarations: [ TreeViewStp1Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProjectNameComponent);
+    fixture = TestBed.createComponent(TreeViewStp1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

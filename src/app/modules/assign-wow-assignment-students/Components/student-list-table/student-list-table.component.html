@@ -1,0 +1,37 @@
+<div class="mt-4  mb-3 ml-1">
+  <div class="mat-elevation-z8 example-container   w-[200px] gt-lg:w-fit">
+    <div id="pdfTable" class="component--mat-table__custom-table overflow-auto">
+      <table *ngIf="dataSource" id="excel_table" mat-table [dataSource]="dataSource"
+        class="table table-bordered table-sm">
+        <ng-container matColumnDef="dateAndTime">
+          <th mat-header-cell *matHeaderCellDef style="
+              word-wrap: break-word;
+              min-width: 200px;
+              max-width: 180px;
+              vertical-align: middle;
+              margin-top:8px;
+              text-align: center;
+              margin-bottom: 8px;
+            ">
+            Student List with Access to
+            <br>
+            above assignment
+          </th>
+          <td mat-cell *matCellDef="let element" style="padding-left: 2mm;">
+            <mat-checkbox>
+            <div class="flex">
+              <img src="../../../../../assets/images/OIP.jpg" style="height: 25px;width: 24px;">
+              <span class="text-blue-600 ml-1">{{element.name}}</span>
+              </div>
+              </mat-checkbox>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="7">No data available</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

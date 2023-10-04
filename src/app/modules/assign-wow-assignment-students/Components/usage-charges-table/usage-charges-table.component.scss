@@ -1,0 +1,41 @@
+
+@import "variables";
+
+.example-container .mat-table {
+  overflow: scroll;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.print {
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+  right: 5px;
+}
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+.mat-column-dateAndTime {
+  // text-align: center;
+  // border-right: 1px solid $secondary-color;
+
+}

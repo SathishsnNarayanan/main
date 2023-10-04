@@ -10,6 +10,11 @@ import { ApiPrefixInterceptor } from './core/interceptor/api-prefix.interceptor'
 import { JwtTokenInterceptor } from './core/interceptor/jwt-token.interceptor';
 import { StyleManager } from './shared/services/style-manager/style-manager.service';
 import { SharedModule } from './shared/shared.module';
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -20,6 +25,9 @@ export function tokenGetter() {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
     SharedModule,
     JwtModule.forRoot({
       config: {

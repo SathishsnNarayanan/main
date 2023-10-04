@@ -1,0 +1,108 @@
+<mat-toolbar class="component--dialog-box__custom-toolbar mb-2">
+  <span class="font-small-in-size"> PRE-PAY WOW Assignment USage CHARGES</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="flex items-center justify-center">
+    <mat-icon (click)="cancelN()">close</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<div class="p-2">
+  <div>
+    <div class="flex gt-xs:gap-1 flex-wrap gt:xs:flex">
+      <div class="flex flex-wrap">
+        <div class="text-[14px] font-bold text-black">As this WOW Assignment is chargeable at </div>
+        <div class="flex ml-1  gt-xs:gap-1">
+          <div class="text-[14px] font-bold text-blue-600">0.50</div>
+          <div class="text-[14px] font-bold text-red">INR/Usage</div>
+
+          <div class="xs:ml-1  flex gt-sm:flex ">
+            <div class="text-[14px] font-bold text-black">WOW Price:</div>
+            <div class="flex gt-xs:gap-1">
+              <div class="text-[14px] font-bold text-blue-600 ml-1">0.25</div>
+              <div class="text-[14px] font-bold text-red">INR/Usage</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="text-[14px] font-bold ">
+      <div class="text-justify">
+
+        <span class="primary-heading">
+
+          <u> You have the option to pre - pay the same for the
+            following selected users from your WOW Wallet / GET
+            Wallet.</u>
+        </span>
+
+        <span class="secondary-heading"><u> Moreover, the un-selected users shall have the option
+            to pay from their GET Wallet before accessing
+            the above WOW Assignment.</u></span>
+
+      </div>
+    </div>
+  </div>
+  <div><app-usage-charges-table></app-usage-charges-table></div>
+
+  <div>
+    <div class="flex flex-wrap gt-xs:gap-1 ">
+      <div class="flex">
+        <div class="text-[14px] font-bold text-black">Click the following button, if you intend to pay a total of
+          <span class="text-[14px] font-bold text-blue-600">25.00</span>
+          <span class="text-[14px] font-bold text-red ">INR </span>
+          <span class="text-[14px] font-bold text-black">for the above selected </span>
+          <span class="text-[14px] font-bold text-blue-600 ">100 </span>
+          <span class="text-[14px] font-bold text-red">INR </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-1">
+    <button class="primary-button" mat-raised-button>Pay from WOW Wallet</button>
+  </div>
+
+  <div class="mt-2">
+  <mat-divider class="mt-1"></mat-divider>
+  </div>
+
+  <div>
+    <div class="flex flex-wrap gt-xs:gap-1">
+      <div class="flex ">
+        <div class="text-[14px] font-bold text-black">Click the following button, if you intend to pay a total of
+         <span class="text-[14px] font-bold text-blue-600">50.00 </span>
+          <span class="text-[14px] font-bold text-red">INR </span>
+          <span class="text-[14px] font-bold text-black">for the above selected </span>
+          <span class="text-[14px] font-bold text-blue-600 ">100 </span>
+          <span class="text-[14px] font-bold text-red ">INR </span>
+         </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-1 ">
+    <button class="primary-button" mat-raised-button>Pay from WOW Wallet</button>
+  </div>
+
+  <div class="mt-2">
+  <mat-divider ></mat-divider>
+  </div>
+
+  <div class="mt-2 text-justify">
+    <div class="text-[14px] font-bold text-blue-600">Alternatively, you can cancel and let the above users make
+      payment<br>
+      from their respective wallets.</div>
+  </div>
+
+  <div class="mt-2">
+    <button class="primary-button" mat-raised-button (click)="cancelN()">Cancel</button>
+  </div>
+
+
+</div>
